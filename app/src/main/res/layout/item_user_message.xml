@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--用户消息布局-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="48dp"
+    android:paddingEnd="8dp"
+    android:paddingVertical="4dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:ignore="RtlSymmetry"
+        android:background="@drawable/bg_user_message">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAlignment="textStart"
+            android:lineSpacingExtra="2sp"
+            android:saveEnabled="true"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:textColor="#80FFFFFF"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+</FrameLayout>

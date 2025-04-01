@@ -1,0 +1,8 @@
+<!--自定义的圆角矩形输入框-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/white"/>
+        <corners android:radius="5dp"/>
+        <stroke
+            android:color="@color/black"
+            android:width="2dp"/>
+</shape>

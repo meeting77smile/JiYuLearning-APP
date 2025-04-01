@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tittle_booking"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="681dp"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center|right"
+                android:text="请选择时间："
+                android:drawableLeft="@drawable/calendar_2"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center"
+                android:text="12-13"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_list"
+            android:layout_width="match_parent"
+            android:layout_height="469dp"
+            android:background="@drawable/bg_jiyu03">
+
+            <androidx.viewpager.widget.PagerTabStrip
+                android:id="@+id/pts_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </androidx.viewpager.widget.ViewPager>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_date_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="left|center"
+                android:text="日期：12-13"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_finished"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="已完成："
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/finished"/>
+
+                <TextView
+                    android:id="@+id/tv_todo"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="未完成："
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:drawableLeft="@drawable/todo"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_sum_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="还需："
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

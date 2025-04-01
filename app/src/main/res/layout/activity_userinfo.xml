@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_background"> <!-- 使用浅色背景 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 账号 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tv_account"
+            android:hint="您的账号"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/rounded_textview_light" /> <!-- 显示账户名，使用相同风格的背景 -->
+
+        <!-- 用户名 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名(可修改)"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="您的用户名"
+            android:textSize="16sp"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_light" /> <!-- 自定义浅色圆角边框样式 -->
+
+
+        <!-- 用户水平 -->
+        <TextView
+            android:id="@+id/textViewUserLevelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户水平(可修改)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/et_update_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="您的水平"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="@drawable/rounded_textview_light" />
+
+        <!-- 修改密码部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改密码"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/et_pre_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="原密码"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_light"
+            android:layout_marginBottom="8dp" />
+        <EditText
+            android:id="@+id/et_new_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="新密码"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_light"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/et_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="确认密码"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_light" />
+
+        <!-- 保存按钮 -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存更改"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorPrimaryLight" /> <!-- 使用浅色主题颜色 -->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorPrimaryLight" /> <!-- 使用浅色主题颜色 -->
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#23CBF4</color>
+    <color name="grey">#CCCCCC</color>
+    <color name="red">#FF0000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="assistant_bg">#FFF5F5F5</color>
+    <!-- 浅色调背景颜色 -->
+    <color name="light_background">#FAFAFA</color> <!-- 一个非常浅的灰色 -->
+
+    <!-- 主题浅色 -->
+    <color name="colorPrimaryLight">#0BEDF5</color> <!-- 示例绿色，可根据实际需求调整 -->
+</resources>
