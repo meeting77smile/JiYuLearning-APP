@@ -2,6 +2,7 @@ package com.example.jiyulearning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
             //防止重复跳转，采取栈顶清空方式
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -84,5 +86,12 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
         //防止重复跳转，采取栈顶清空方式
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDBHelper.closeLink();//关闭数据库的连接
     }
 }
