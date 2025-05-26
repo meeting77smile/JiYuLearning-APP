@@ -86,12 +86,13 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
         //防止重复跳转，采取栈顶清空方式
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        mDBHelper.closeLink();
         finish();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mDBHelper.closeLink();//关闭数据库的连接
+        //mDBHelper.closeLink();//关闭数据库的连接
     }
 }
