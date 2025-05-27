@@ -25,4 +25,14 @@ class CalculatorTest {
 
         onView(withId(R.id.tv_result)).check(matches(withText("1+2=3.0")))
     }
+
+    @Test
+    fun minusTest() {
+        onView(withId(R.id.btn_five)).perform(click())
+        onView(withId(R.id.btn_minus)).perform(click())
+        onView(withId(R.id.btn_four)).perform(click())
+        onView(withId(R.id.btn_equal)).perform(click())
+
+        onView(withId(R.id.tv_result)).check(matches(withText("5-4=1.0")))
+    }
 }
