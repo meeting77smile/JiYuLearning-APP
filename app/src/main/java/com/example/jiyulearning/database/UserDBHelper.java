@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 
+import com.example.jiyulearning.LoginActivity;
 import com.example.jiyulearning.entity.UserInfo;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
     public SQLiteDatabase openReadLink(){
         if(mRDB == null || !mRDB.isOpen()){
             mRDB = mHelper.getReadableDatabase();
+            Log.i("test", "db_read_open");
         }
         return mRDB;
     }
@@ -46,6 +48,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
     public SQLiteDatabase openWriteLink(){
         if(mWDB == null || !mWDB.isOpen()){
             mWDB = mHelper.getWritableDatabase();
+            Log.i("test", "db_write_open");
         }
         return mWDB;
     }
@@ -55,10 +58,12 @@ public class UserDBHelper extends SQLiteOpenHelper {
         if(mRDB != null && mRDB.isOpen()){
             mRDB.close();
             mRDB = null;
+            Log.i("test", "db_read_close");
         }
         if(mWDB != null && mWDB.isOpen()){
             mWDB.close();
             mWDB = null;
+            Log.i("test", "db_write_close");
         }
     }
     //创建数据库，执行建表语句

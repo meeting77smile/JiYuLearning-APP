@@ -95,4 +95,10 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDBHelper.closeLink();
+    }
 }

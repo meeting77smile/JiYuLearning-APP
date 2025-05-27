@@ -2,6 +2,7 @@ package com.example.jiyulearning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
             //防止重复跳转，采取栈顶清空方式
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -100,6 +102,6 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
         //只在主界面写一次即可
         //覆写onDestroy方法
         super.onDestroy();
-        mDBHelper.closeLink();//关闭数据库的连接
+        //mDBHelper.closeLink();//关闭数据库的连接
     }
 }
