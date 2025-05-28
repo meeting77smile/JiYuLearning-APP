@@ -1,7 +1,12 @@
 package com.example.jiyulearning;
 
+import static com.example.jiyulearning.LoginActivity.userInfo;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.ContentInfo;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,11 +36,11 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
         loginActivity = new LoginActivity();
         //显示用户名、账号、水平等信息
         et_username = findViewById(R.id.et_username);
-        et_username.setText(loginActivity.userInfo.username);
+        et_username.setText(userInfo.username);
         TextView tv_account = findViewById(R.id.tv_account);
-        tv_account.setText(loginActivity.userInfo.account);
+        tv_account.setText(userInfo.account);
         et_update_level = findViewById(R.id.et_update_level);
-        et_update_level.setText(String.valueOf(loginActivity.userInfo.level));
+        et_update_level.setText(String.valueOf(userInfo.level));
 
         //当点击“保存更改”按钮
         findViewById(R.id.btn_save).setOnClickListener(this);
@@ -75,24 +80,29 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                 return;
             }
             if(new_password.length() != 0) {//当用户输入新密码时，才会修改密码
-                if(!pre_password.equals(loginActivity.userInfo.password)){//原密码输入错误
+                if(!pre_password.equals(userInfo.password)){//原密码输入错误
                     ToastUtil.show(this,"原密码输入错误~");
                     return;
                 }
-                loginActivity.userInfo.password = new_password;
+                userInfo.password = new_password;
             }
             //修改无误，更新用户信息
-            loginActivity.userInfo.username = username;
-            loginActivity.userInfo.level = Integer.parseInt(level);
+            userInfo.username = username;
+            userInfo.level = Integer.parseInt(level);
 
 
-            if(mDBHelper.updata(loginActivity.userInfo)>0){
+            if(mDBHelper.updata(userInfo)>0){
+                SharedPreferences spInfo = getSharedPreferences("Info", Context.MODE_PRIVATE);
+                SharedPreferences.Editor spInfoEditor = spInfo.edit();
+                spInfoEditor.putString("loggingInfo", userInfo.toString());
+                spInfoEditor.apply();
                 ToastUtil.show(this,"用户信息已更新~");
             }
         }
         else if(view.getId() == R.id.btn_back){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+            finish();
         }
     }
 

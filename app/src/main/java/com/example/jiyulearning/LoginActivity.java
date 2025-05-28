@@ -1,7 +1,10 @@
 package com.example.jiyulearning;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,15 +18,32 @@ import com.example.jiyulearning.database.UserDBHelper;
 import com.example.jiyulearning.entity.UserInfo;
 import com.example.jiyulearning.util.ToastUtil;
 
+import java.util.prefs.Preferences;
+
 public class LoginActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private UserDBHelper mDBHelper;
     private EditText et_account;
     private EditText et_password;
     public static String account;//设置为全局变量：加上static
     public static UserInfo userInfo;
+
+    private SharedPreferences spInfo; // 保存信息的SharedPreferences
+    private SharedPreferences.Editor spInfoEditor;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        spInfo = getSharedPreferences("Info", Context.MODE_PRIVATE);
+        spInfoEditor = spInfo.edit();
+
+        if (!spInfo.getString("loggingInfo", "").isEmpty()) {
+            Intent intent = new Intent(this, MainActivity.class);
+            userInfo = new UserInfo(spInfo.getString("loggingInfo", ""));
+            startActivity(intent);
+            finish();
+        }
+
         setContentView(R.layout.activity_login);
         //给rg_login设置单选监听器
         RadioGroup rg_login = findViewById(R.id.rg_login);
@@ -81,6 +101,11 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
             ToastUtil.show(this,"登录成功！");
         }
         userInfo.account=account;
+
+        // 使用SharedPreferences保存登陆信息
+        spInfoEditor.putString("loggingInfo", userInfo.toString());
+        spInfoEditor.apply();
+
         //跳转到主界面
         Intent intent = new Intent(this,MainActivity.class);
         //防止重复跳转，采取栈顶清空方式
