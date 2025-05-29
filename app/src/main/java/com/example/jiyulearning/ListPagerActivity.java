@@ -136,7 +136,7 @@ public class ListPagerActivity extends AppCompatActivity implements View.OnClick
         calendar.set(Calendar.YEAR,year);
         calendar.set(Calendar.MONTH,month);
         calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        tv_day.setText(DateUtil.getDay(calendar));
+        tv_day.setText(DateUtil.getMonth(calendar));
         //设置翻页视图显示第几页
         vp_list.setCurrentItem(dayOfMonth-1);
     }
