@@ -2,8 +2,11 @@ package com.example.jiyulearning;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -65,9 +68,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         else if(view.getId() == R.id.btn_logout){
+            SharedPreferences spInfo = getSharedPreferences("Info", Context.MODE_PRIVATE);
+            SharedPreferences.Editor spInfoEditor = spInfo.edit();
+            spInfoEditor.remove("loggingInfo");
+            spInfoEditor.apply();
             ToastUtil.show(this,"已退出登录~");
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
         else if(view.getId() == R.id.card_daily_plan){
             Intent intent = new Intent(MainActivity.this, ListPagerActivity.class);
